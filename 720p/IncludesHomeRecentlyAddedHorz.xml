@@ -1,0 +1,830 @@
+<includes>
+	<include name="HomeRecentlyAddedInfoHorz">
+		<control type="group" id="8004">
+			<visible>!Window.IsVisible(Favourites)</visible>
+			<include>VisibleFadeEffect</include>
+			<animation effect="fade" time="300" delay="1000">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowClose</animation>
+
+
+			<control type="image">
+					<posx>0</posx>
+					<posy>-650</posy>
+					<width>1280</width>
+					<height>700</height>
+					<texture flipy="true">rightlistbackground.png</texture>
+					<aspectratio>stretch</aspectratio>
+			</control>
+
+			
+			<!-- RECENTLY ADDED MOVIES -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>Library.HasContent(Movies)</visible>
+				<visible>Container(9000).Hasfocus(3)</visible>
+				<include>VisibleFadeEffect</include>
+				<!-- <animation effect="slide" time="0" start="0,0" end="-260,0" condition="[Library.HasContent(TVShows) + ![Skin.HasSetting(HomeMenuNoMoviesButton) | Skin.HasSetting(HomeMenuNoTVShowsButton)]]">Conditional</animation> -->
+				<control type="image">
+						<posx>0</posx>
+						<posy>-535</posy>
+						<width>1280</width>
+						<height>700</height>
+						<texture flipy="true">rightlistbackground.png</texture>
+						<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<posx>35</posx>
+					<posy>20</posy>
+					<height>20</height>
+					<width>450</width>
+					<label>31323</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_20</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+
+				<control type="list" id="8000">
+					<posx>30</posx>
+					<posy>55</posy>
+					<width>1240</width>
+					<height>400</height>
+					<onleft>8000</onleft>
+					<onright>8000</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<align>left</align>
+					<viewtype label="535">list</viewtype>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<itemlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>65</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<description>Title label</description>
+							<posx>75</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Year label</description>
+							<posx>75</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Runtime label</description>
+							<posx>75</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Thumb] $LOCALIZE[12391]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_16</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>65</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>-40</posx>
+							<posy>15</posy>
+							<width>140</width>
+							<height>70</height>
+							<texture background="true">play-button3.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<description>Title label</description>
+							<posx>75</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Year label</description>
+							<posx>75</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Runtime label</description>
+							<posx>75</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>310</width>
+							<label>$INFO[ListItem.Thumb] $LOCALIZE[12391]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_16</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+							<label2>$INFO[Window.Property(LatestMovie.1.Year)]</label2>
+							<thumb>$INFO[Window.Property(LatestMovie.1.RunningTime)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestMovie.1.Thumb)]</icon>
+						</item>
+						<item id="2">
+							<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+							<label2>$INFO[Window.Property(LatestMovie.2.Year)]</label2>
+							<thumb>$INFO[Window.Property(LatestMovie.2.RunningTime)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestMovie.2.Thumb)]</icon>
+						</item>
+						<item id="3">
+							<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+							<label2>$INFO[Window.Property(LatestMovie.3.Year)]</label2>
+							<thumb>$INFO[Window.Property(LatestMovie.3.RunningTime)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestMovie.3.Thumb)]</icon>
+						</item>
+					</content>
+				</control>
+			</control>
+			
+			<!-- RECENTLY ADDED TV SHOWS -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>Library.HasContent(TVShows)</visible>
+				<visible>Container(9000).Hasfocus(4)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="image">
+						<posx>0</posx>
+						<posy>-535</posy>
+						<width>1280</width>
+						<height>700</height>
+						<texture flipy="true">rightlistbackground.png</texture>
+						<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<posx>35</posx>
+					<posy>20</posy>
+					<height>20</height>
+					<width>450</width>
+					<label>31324</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_20</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+
+				<control type="list" id="8001">
+					<posx>30</posx>
+					<posy>55</posy>
+					<width>1240</width>
+					<height>400</height>
+					<onleft>8001</onleft>
+					<onright>8001</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<align>left</align>
+					<viewtype label="535">list</viewtype>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime>0</scrolltime>
+					
+					<itemlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>140</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<description>Title label</description>
+							<posx>150</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>tv show label</description>
+							<posx>150</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>season label</description>
+							<posx>150</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>[UPPERCASE]$INFO[ListItem.Thumb][/UPPERCASE]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>140</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>20</posy>
+							<width>140</width>
+							<height>70</height>
+							<texture background="true">play-button3.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<description>Title label</description>
+							<posx>150</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>tv show label</description>
+							<posx>150</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>season label</description>
+							<posx>150</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>220</width>
+							<label>[UPPERCASE]$INFO[ListItem.Thumb][/UPPERCASE]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</focusedlayout>
+					
+					<content>
+						<item id="1">
+							<label>$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
+							<label2>$INFO[Window.Property(LatestEpisode.1.ShowTitle)]</label2>
+							<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.1.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestEpisode.1.Thumb)]</icon>
+							<thumb>$INFO[Window.Property(LatestEpisode.1.EpisodeNo)]</thumb>
+						</item>
+						<item id="2">
+							<label>$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
+							<label2>$INFO[Window.Property(LatestEpisode.2.ShowTitle)]</label2>
+							<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.2.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestEpisode.2.Thumb)]</icon>
+							<thumb>$INFO[Window.Property(LatestEpisode.2.EpisodeNo)]</thumb>
+						</item>
+						<item id="3">
+							<label>$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
+							<label2>$INFO[Window.Property(LatestEpisode.3.ShowTitle)]</label2>
+							<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.3.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestEpisode.3.Thumb)]</icon>
+							<thumb>$INFO[Window.Property(LatestEpisode.3.EpisodeNo)]</thumb>
+						</item>
+					</content>
+				</control>
+			</control>
+
+			<!-- RECENTLY ADDED MUSIC -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>Library.HasContent(Music)</visible>
+				<visible>Container(9000).Hasfocus(5)</visible>
+				<include>VisibleFadeEffect</include>
+				<!-- <animation effect="slide" time="0" start="0,0" end="-260,0" condition="[Library.HasContent(TVShows) + ![Skin.HasSetting(HomeMenuNoMoviesButton) | Skin.HasSetting(HomeMenuNoTVShowsButton)]]">Conditional</animation> -->
+				<control type="image">
+						<posx>0</posx>
+						<posy>-535</posy>
+						<width>1280</width>
+						<height>700</height>
+						<texture flipy="true">rightlistbackground.png</texture>
+						<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<posx>35</posx>
+					<posy>20</posy>
+					<height>20</height>
+					<width>450</width>
+					<label>359</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_20</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+
+				<control type="list" id="8002">
+					<posx>30</posx>
+					<posy>55</posy>
+					<width>1240</width>
+					<height>400</height>
+					<onleft>8002</onleft>
+					<onright>8002</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<align>left</align>
+					<viewtype label="535">list</viewtype>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<itemlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>100</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<description>Artist label</description>
+							<posx>110</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Album label</description>
+							<posx>110</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Year label</description>
+							<posx>110</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Thumb]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_16</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="410" height="80">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>390</width>
+							<height>100</height>
+							<texture background="true">background-RAhorz.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>2</posy>
+							<width>100</width>
+							<height>96</height>
+							<texture background="true" diffuse="maskrecentlyaddedIcon.png">$INFO[ListItem.ActualIcon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>-20</posx>
+							<posy>20</posy>
+							<width>140</width>
+							<height>70</height>
+							<texture background="true">play-button3.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<description>Artist label</description>
+							<posx>110</posx>
+							<posy>5</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Album label</description>
+							<posx>110</posx>
+							<posy>40</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_20</font>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="label">
+							<description>Year label</description>
+							<posx>110</posx>
+							<posy>75</posy>
+							<height>20</height>
+							<width>290</width>
+							<label>$INFO[ListItem.Thumb]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>cirrus_16</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$INFO[Window.Property(LatestSong.1.Artist)]</label>
+							<label2>$INFO[Window.Property(LatestSong.1.Album)]</label2>
+							<thumb>$INFO[Window.Property(LatestSong.1.Year)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestSong.1.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestSong.1.Thumb)]</icon>
+						</item>
+						<item id="2">
+							<label>$INFO[Window.Property(LatestSong.2.Artist)]</label>
+							<label2>$INFO[Window.Property(LatestSong.2.Album)]</label2>
+							<thumb>$INFO[Window.Property(LatestSong.2.Year)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestSong.2.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestSong.2.Thumb)]</icon>
+						</item>
+						<item id="3">
+							<label>$INFO[Window.Property(LatestSong.3.Artist)]</label>
+							<label2>$INFO[Window.Property(LatestSong.3.Album)]</label2>
+							<thumb>$INFO[Window.Property(LatestSong.3.Year)]</thumb>
+							<onclick>PlayMedia($INFO[Window.Property(LatestSong.3.Path)])</onclick>
+							<icon>$INFO[Window.Property(LatestSong.3.Thumb)]</icon>
+						</item>
+					</content>
+				</control>
+			</control>
+
+			<!-- STATISTICS VIDEOS MENU SELECTED -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>Library.HasContent(TVShows) + Container(9000).HasFocus(2)</visible>
+				<visible>[Container(9000).Hasfocus(2) + !Skin.HasSetting(HomeMenuNoTVShowsButton)] | Container(9000).Hasfocus(11)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="image">
+						<posx>0</posx>
+						<posy>-535</posy>
+						<width>1280</width>
+						<height>700</height>
+						<texture flipy="true">rightlistbackground.png</texture>
+						<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<posx>35</posx>
+					<posy>20</posy>
+					<height>20</height>
+					<width>450</width>
+					<label>$LOCALIZE[14022] $LOCALIZE[16100]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_20</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="group">
+					<posx>30</posx>
+					<posy>55</posy>
+					<!-- Movies section -->
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>390</width>
+						<height>100</height>
+						<texture background="true">background-RAhorz.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>10</posy>
+						<width>80</width>
+						<height>80</height>
+						<texture background="true">recentlyaddediconMovies.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<description>title label</description>
+						<posx>90</posx>
+						<posy>10</posy>
+						<height>20</height>
+						<width>300</width>
+						<label>$LOCALIZE[342]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16_Bold</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>count label</description>
+						<posx>90</posx>
+						<posy>30</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[20161] $LOCALIZE[342]: $INFO[Window.Property(Movies.Count)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>watched label</description>
+						<posx>90</posx>
+						<posy>50</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16102] $LOCALIZE[342]: $INFO[Window.Property(Movies.Watched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>unwatched label</description>
+						<posx>90</posx>
+						<posy>70</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16101] $LOCALIZE[342]: $INFO[Window.Property(Movies.UnWatched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>
+					<!-- TV section -->
+					<control type="image">
+						<posx>410</posx>
+						<posy>0</posy>
+						<width>390</width>
+						<height>100</height>
+						<texture background="true">background-RAhorz.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<posx>410</posx>
+						<posy>10</posy>
+						<width>80</width>
+						<height>80</height>
+						<texture background="true">recentlyaddediconTV.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<description>title label</description>
+						<posx>500</posx>
+						<posy>10</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[20343]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16_Bold</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>count label</description>
+						<posx>500</posx>
+						<posy>30</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[20161] $LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>watched label</description>
+						<posx>500</posx>
+						<posy>50</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16102] $LOCALIZE[20343]: $INFO[Window.Property(TVShows.Watched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>unwatched label</description>
+						<posx>500</posx>
+						<posy>70</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16101] $LOCALIZE[20343]: $INFO[Window.Property(TVShows.UnWatched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>
+					<!-- Episodes section -->
+					<control type="image">
+						<posx>820</posx>
+						<posy>0</posy>
+						<width>390</width>
+						<height>100</height>
+						<texture background="true">background-RAhorz.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<posx>830</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>90</height>
+						<texture background="true">recentlyaddediconEpisodes.png</texture>
+						<aspectratio>stretck</aspectratio>
+					</control>
+					<control type="label">
+						<description>title label</description>
+						<posx>920</posx>
+						<posy>10</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[20360]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16_Bold</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>count label</description>
+						<posx>920</posx>
+						<posy>30</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[20161] $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>watched label</description>
+						<posx>920</posx>
+						<posy>50</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16102] $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Watched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>	
+					<control type="label">
+						<description>unwatched label</description>
+						<posx>920</posx>
+						<posy>70</posy>
+						<height>20</height>
+						<width>275</width>
+						<label>$LOCALIZE[16101] $LOCALIZE[20360]: $INFO[Window.Property(Episodes.UnWatched)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>cirrus_16</font>
+						<textcolor>white</textcolor>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>
